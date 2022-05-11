@@ -4,6 +4,7 @@
   "description": "Parse and decode the EU-DCC Trustlist from covidbevis.se",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "clean": "rm ./work -R",
     "fetch": "mkdir -p work && wget -O ./work/jwt.txt https://dgcg.covidbevis.se/tp/trust-list && wget -O ./work/jwt-acc.txt https://dgcg-qa.covidbevis.se/tp/trust-list",
     "unpack": "cat ./work/jwt.txt | ./node_modules/.bin/jwt --output=json > ./work/trustlist.json && cat ./work/jwt-acc.txt | ./node_modules/.bin/jwt --output=json > ./work/trustlist-acc.json",
@@ -20,5 +21,8 @@
     "jwt-decode": "^3.1.2",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.16"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
