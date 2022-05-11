@@ -1,0 +1,24 @@
+{
+  "name": "eu-dcc-trustlist",
+  "version": "1.0.0",
+  "description": "Parse and decode the EU-DCC Trustlist from covidbevis.se",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm ./work -R",
+    "fetch": "mkdir -p work && wget -O ./work/jwt.txt https://dgcg.covidbevis.se/tp/trust-list && wget -O ./work/jwt-acc.txt https://dgcg-qa.covidbevis.se/tp/trust-list",
+    "unpack": "cat ./work/jwt.txt | ./node_modules/.bin/jwt --output=json > ./work/trustlist.json && cat ./work/jwt-acc.txt | ./node_modules/.bin/jwt --output=json > ./work/trustlist-acc.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Stavros Kounis",
+  "license": "ISC",
+  "_type": "module",
+  "dependencies": {
+    "base64-cli": "^0.0.2",
+    "express": "^4.18.1",
+    "jwt-cli": "^2.0.0",
+    "jwt-decode": "^3.1.2",
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.16"
+  }
+}
