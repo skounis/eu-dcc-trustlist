@@ -1,5 +1,3 @@
-# .github/workflows/heroku-deploy.yml
-# https://remarkablemark.org/blog/2021/03/12/github-actions-deploy-to-heroku/
 jobs:
   heroku-deploy:
     runs-on: ubuntu-latest
